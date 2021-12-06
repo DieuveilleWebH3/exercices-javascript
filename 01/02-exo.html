@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+        
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 2</title>
+    </head>
+
+    <body>
+        <h1>Dieuveille BOUSSA ELLENGA - Exercice 2</h1>
+
+        <script>
+
+            function how_many (x, y) {                  
+
+                console.log("How many " + y + " in " + x);
+
+                let c = 0;
+
+                let reg = new RegExp(y, "i", "g");
+                c = (x.match(reg) || []).length;
+
+                console.log(c);
+
+                // console.log( c.toString + " " + y + " in " + x);
+                console.log(` ${c}  ${y}  in  ${x} `);
+
+                return c;
+            }
+
+            console.log();
+            console.log(how_many("bonjour", "o"));
+            console.log();
+            console.log(how_many("bonjour", "O"));
+
+            console.log("\n");
+
+            console.log(how_many("hello les amis", "o"));
+            console.log();
+            console.log(how_many("hello les amis", "z"));
+
+            console.log("\n");
+
+            console.log(how_many("hello henry", "o"));
+
+            console.log("\n");
+
+        </script>
+        
+    </body>
+
+</html>
