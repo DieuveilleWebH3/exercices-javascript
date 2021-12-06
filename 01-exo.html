@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+        
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 1</title>
+    </head>
+
+    <body>
+        <h1>Dieuveille BOUSSA ELLENGA - Exercice 1</h1>
+
+        <script>
+
+            function not_twice (x) {                  
+
+                console.log(x);
+            
+                for (var i=0; i < x.length; i++) {
+
+                    let c = 0; 
+
+                    let reg = new RegExp(x[i], "g");
+                    c = (x.match(reg) || []).length;
+
+                    console.log(c);
+
+                    if (c == 1) return x[i];
+                }
+
+                return null;
+            }
+
+            console.log();
+
+            console.log(not_twice("bonjour"));
+
+            console.log("\n");
+
+            console.log(not_twice("hello henry"));
+
+            console.log("\n");
+
+            console.log(not_twice("hello"));
+
+            console.log("\n");
+
+            console.log(not_twice("coucou"));
+
+            console.log("\n");
+
+        </script>
+        
+    </body>
+
+</html>
