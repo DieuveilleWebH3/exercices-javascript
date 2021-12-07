@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+        
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 4</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Dieuveille BOUSSA ELLENGA - Exercice 4</h1>
+
+        <script>
+
+            function random(x) {             
+
+                console.log("Type of x is : ", typeof(x));
+                console.log("Is x an array ? : ", Array.isArray(x));
+
+                if( !(Array.isArray(x)) || (x.length === 0))
+                {
+                    return "Error!! Variable not an array or null";
+                }
+
+                console.log("\n");
+
+                // Return a random number between 1 and 100:
+
+                return x[Math.floor((Math.random() * x.length) + 0)];
+
+                // return x;
+            }
+
+            console.log();
+
+            console.log(random([]));
+
+            console.log("\n");
+
+            console.log(random(""));
+
+            console.log("\n");
+
+            console.log(random(['a','b', 'c', 'd']));
+
+            console.log("\n");
+
+            console.log(random(['a','b','a', 'a', 'd' , 'b', 'a']));
+
+            console.log("\n");
+            console.log("********************************* Second Way **********************************************");
+            console.log("\n");
+
+            /*
+            function unique_push1(x, y) {                
+
+                console.log("Prime Array", x);
+
+                var uniqueArr = [];
+                x.forEach((c) => {
+                    if (!uniqueArr.includes(c)) {
+                        uniqueArr.push(c);
+                    }
+                });
+
+                console.log("Prime Array without duplicates : ", uniqueArr);
+
+                console.log("Array to add : ", y);
+            
+                for (var i=0; i < y.length; i++) {
+
+                    if (uniqueArr.includes(y[i]))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        uniqueArr.push(y[i])
+                    } 
+                }
+
+                console.log("\n");
+
+                console.log("Newly merged array : ", uniqueArr);
+
+                return uniqueArr;
+            }
+
+            console.log();
+
+            console.log(unique_push1(['a','b'], ['c', 'd']));
+
+            console.log("\n");
+
+            console.log(unique_push1(['a','b'], ['a', 'd']));
+
+            console.log("\n");
+
+            console.log(unique_push1(['a','b','a'], ['a', 'd' , 'b', 'a']));
+
+            console.log("\n");
+            */
+
+        </script>
+        
+    </body>
+
+</html>
