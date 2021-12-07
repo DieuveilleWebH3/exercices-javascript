@@ -41,16 +41,20 @@
             let data = articles.map(article => {
                 return Object.assign(
                     {} , 
-                    article , 
+                    article ,
+                    {
+                        auteur : auteurs.filter(el => el.id === article.id_auteur)
+                    },
                     {
                         commentaires : commentaires.filter(el => el.id_article === article.id)
-                    }
+                    },
                         
                 )
     
             });
 
             console.log("\n");
+            /*
 
             console.log(data);
 
@@ -65,6 +69,7 @@
                 )
     
             });
+            */
 
             /*
             const resultat = panier.map( produit  => {
