@@ -18,21 +18,21 @@
 
             function random(x) {             
 
-                console.log("Type of x is : ", typeof(x));
-                console.log("Is x an array ? : ", Array.isArray(x));
+                // console.log("Type of x is : ", typeof(x));
+                // console.log("Is x an array ? : ", Array.isArray(x));
 
                 if( !(Array.isArray(x)) || (x.length === 0))
                 {
                     return "Error!! Variable not an array or null";
                 }
 
-                console.log("\n");
+                console.log("Array x : ", x);
 
-                // Return a random number between 1 and 100:
+                console.log("");
+
+                // Generate a random number between the first and last index and return its value:
 
                 return x[Math.floor((Math.random() * x.length) + 0)];
-
-                // return x;
             }
 
             console.log();
@@ -52,58 +52,6 @@
             console.log(random(['a','b','a', 'a', 'd' , 'b', 'a']));
 
             console.log("\n");
-            console.log("********************************* Second Way **********************************************");
-            console.log("\n");
-
-            /*
-            function unique_push1(x, y) {                
-
-                console.log("Prime Array", x);
-
-                var uniqueArr = [];
-                x.forEach((c) => {
-                    if (!uniqueArr.includes(c)) {
-                        uniqueArr.push(c);
-                    }
-                });
-
-                console.log("Prime Array without duplicates : ", uniqueArr);
-
-                console.log("Array to add : ", y);
-            
-                for (var i=0; i < y.length; i++) {
-
-                    if (uniqueArr.includes(y[i]))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        uniqueArr.push(y[i])
-                    } 
-                }
-
-                console.log("\n");
-
-                console.log("Newly merged array : ", uniqueArr);
-
-                return uniqueArr;
-            }
-
-            console.log();
-
-            console.log(unique_push1(['a','b'], ['c', 'd']));
-
-            console.log("\n");
-
-            console.log(unique_push1(['a','b'], ['a', 'd']));
-
-            console.log("\n");
-
-            console.log(unique_push1(['a','b','a'], ['a', 'd' , 'b', 'a']));
-
-            console.log("\n");
-            */
 
         </script>
         
