@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+        
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 5</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Dieuveille BOUSSA ELLENGA - Exercice 5</h1>
+
+        <script>
+
+            const articles = [
+                    {id : 1 , titre : "article 1", like : 10 , id_auteur : 1},
+                    {id : 2 , titre : "article 2", like : 0 , id_auteur : 3},
+                    {id : 3 , titre : "article 3", like : 15 , id_auteur : 1},
+                    {id : 4 , titre : "article 4", like : 1 , id_auteur : 2},
+                ];
+
+            const auteurs = [
+                    {id : 1 , nom : "Alain" , isActif : true},
+                    {id : 2 , nom : "Béatrice" , isActif : false},
+                    {id : 3 , nom : "Charles" , isActif : true}
+                ];
+
+            const commentaires = [
+                    {id : 1 , contenu : "lorem 1" , id_article : 4},
+                    {id : 2 , contenu : "lorem 2" , id_article : 1},
+                    {id : 3 , contenu : "lorem 3" , id_article : 2},
+                    {id : 4 , contenu : "lorem 4" , id_article : 2},
+                    {id : 5 , contenu : "lorem 5" , id_article : 1},
+                ];
+
+
+            let data = articles.map(article => {
+                return Object.assign(
+                    {} , 
+                    article , 
+                    {
+                        commentaires : commentaires.filter(el => el.id_article === article.id)
+                    }
+                        
+                )
+    
+            });
+
+            console.log("\n");
+
+            console.log(data);
+
+            data = articles.map(article => {
+                return Object.assign(
+                    {} , 
+                    article , 
+                    {
+                        auteur : auteurs.filter(el => el.id === article.id_auteur)
+                    }
+                        
+                )
+    
+            });
+
+            /*
+            const resultat = panier.map( produit  => {
+                return Object.assign(  
+                    {} , 
+                    produit ,
+                    { 
+                        nom : catalogue.find( item => { return item.id === produit.refProduit} ).nom,
+                    },
+                    {
+                        tva : catalogue.find( item => { return item.id === produit.refProduit} ).tva
+                    }
+                    )
+            })
+
+            const resultat1 = panier.map( produit  => {
+                const {tva , nom}= catalogue.find( item => { return item.id === produit.refProduit} )
+                return Object.assign(  
+                    {} , 
+                    produit ,
+                    { tva , nom } 
+                    )
+            })
+            */
+
+            console.log("\n");
+
+            console.log(data);
+
+            console.log("\n");
+
+        </script>
+        
+    </body>
+
+</html>
