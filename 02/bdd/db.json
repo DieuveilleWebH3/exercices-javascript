@@ -1,0 +1,49 @@
+{
+  "depenses": [
+    {
+      "id": 1,
+      "name": "Salary June",
+      "amount": -1784
+    },
+    {
+      "id": 2,
+      "name": "rent fees June",
+      "amount": 550
+    },
+    {
+      "id": 3,
+      "name": "ASOS cosplay Goku",
+      "amount": 55
+    },
+    {
+      "name": "internet fees",
+      "amount": 79,
+      "id": 4
+    },
+    {
+      "name": "Salary July",
+      "amount": -1794,
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Rent fees July",
+      "amount": 550
+    },
+    {
+      "name": "internet fees",
+      "amount": 79,
+      "id": 7
+    },
+    {
+      "name": "ASOS jeans ",
+      "amount": 25,
+      "id": 8
+    },
+    {
+      "name": "Délice Cuisine",
+      "amount": 35,
+      "id": 9
+    }
+  ]
+}
