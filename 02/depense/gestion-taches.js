@@ -94,7 +94,7 @@ function sum( obj )
 
 function genererFormsTaches(data){
 
-    if(data.length === 0) return "<p>Veuillez ajouter des tâches</p>";
+    if(data.length === 0) return "<p>Veuillez ajouter des dépenses ou recettes</p>";
 
     return data.map( d => {
         return `
@@ -103,7 +103,7 @@ function genererFormsTaches(data){
 
             <input type="text" name="name" class="form-input" value="${d.name}">
 
-            <input type="text" name="amount" class="form-input mx-3" value="${d.amount}">
+            <input type="number" name="amount" class="form-input mx-3" value="${d.amount}">
             
             <input type="submit" class="btn btn-primary mx-3" value="modifier">
             <input type="submit" class="btn btn-danger" value="supprimer">
