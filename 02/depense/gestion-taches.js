@@ -21,17 +21,6 @@ window.addEventListener("DOMContentLoaded"  , async() =>
     document.querySelector(".js-recette").innerHTML = sum((todos.filter( todo => todo.amount < 0 )).map( d => {
         return parseFloat(d.amount)
     } ) );
-    
-    /*
-
-    console.log(todos.map( d => {
-        return parseFloat(d.amount)
-    } ) );
-
-    console.log(sum(todos.map( d => {
-        return parseFloat(d.amount)
-    } ) ) );
-    */
 
 
     // écouter quand on clique dans la zone js-list-tache
@@ -47,7 +36,7 @@ window.addEventListener("DOMContentLoaded"  , async() =>
             
             const the_id = form.id.value;
 
-            console.log(action);
+            // console.log(action);
 
             if(action == "modifier")
             {
@@ -58,17 +47,15 @@ window.addEventListener("DOMContentLoaded"  , async() =>
                     amount : parseFloat(form.amount.value)
                 };
 
-                console.log(data);
+                // console.log(data);
 
-                console.log(data.amount);
+                // console.log(data.amount);
 
                 if((data.name == '') || (data.name == undefined) || (form.amount.value == '') || ( form.amount.value == undefined)  || ( form.amount.value == NaN) || ( typeof(data.amount) == NaN)) 
                 {
                     document.querySelector(".js-error").innerHTML = "Veuillez remplir les champs obligatoires";
 
-                    console.log("Veuillez remplir les champs obligatoires");
-
-                    // sleep(25000);
+                    // console.log("Veuillez remplir les champs obligatoires");
                     
                     return 0
                 }
@@ -95,6 +82,7 @@ window.addEventListener("DOMContentLoaded"  , async() =>
     })
 })
 
+
 function sum( obj ) 
 {
     let sum = 0;
@@ -107,16 +95,6 @@ function sum( obj )
     return sum;
 }
 
-function sleep(milliseconds) 
-{
-    const date = Date.now();
-    let currentDate = null;
-    do 
-    {
-        currentDate = Date.now();
-    } 
-    while (currentDate - date < milliseconds);
-}
 
 function genererFormsTaches(data){
 
