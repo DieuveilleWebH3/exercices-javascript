@@ -22,6 +22,7 @@ window.addEventListener("DOMContentLoaded"  , async() =>
         return parseFloat(d.amount)
     } ) );
     
+    /*
 
     console.log(todos.map( d => {
         return parseFloat(d.amount)
@@ -30,6 +31,7 @@ window.addEventListener("DOMContentLoaded"  , async() =>
     console.log(sum(todos.map( d => {
         return parseFloat(d.amount)
     } ) ) );
+    */
 
 
     // écouter quand on clique dans la zone js-list-tache
@@ -57,6 +59,19 @@ window.addEventListener("DOMContentLoaded"  , async() =>
                 };
 
                 console.log(data);
+
+                console.log(data.amount);
+
+                if((data.name == '') || (data.name == undefined) || (form.amount.value == '') || ( form.amount.value == undefined)  || ( form.amount.value == NaN) || ( typeof(data.amount) == NaN)) 
+                {
+                    document.querySelector(".js-error").innerHTML = "Veuillez remplir les champs obligatoires";
+
+                    console.log("Veuillez remplir les champs obligatoires");
+
+                    // sleep(25000);
+                    
+                    return 0
+                }
 
                 const options = 
                 { 
@@ -92,6 +107,17 @@ function sum( obj )
     return sum;
 }
 
+function sleep(milliseconds) 
+{
+    const date = Date.now();
+    let currentDate = null;
+    do 
+    {
+        currentDate = Date.now();
+    } 
+    while (currentDate - date < milliseconds);
+}
+
 function genererFormsTaches(data){
 
     if(data.length === 0) return "<p>Veuillez ajouter des dépenses ou recettes</p>";
@@ -101,9 +127,9 @@ function genererFormsTaches(data){
         <form class="d-flex my-3">
             <input type="hidden" name="id" class="form-input" value="${d.id}">
 
-            <input type="text" name="name" class="form-input" value="${d.name}">
+            <input type="text" name="name" class="form-input" value="${d.name}" required>
 
-            <input type="number" name="amount" class="form-input mx-3" value="${d.amount}">
+            <input type="number" name="amount" class="form-input mx-3" value="${d.amount}" required>
             
             <input type="submit" class="btn btn-primary mx-3" value="modifier">
             <input type="submit" class="btn btn-danger" value="supprimer">
