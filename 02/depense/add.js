@@ -7,6 +7,15 @@ document.querySelector(".js-form-add").addEventListener("submit" , async (e) =>
         amount : parseFloat(e.target.amount.value)
     }
 
+    console.log(e.target.amount.value);
+
+    if( ( e.target.name.value == '') || ( e.target.name.value == undefined ) || ( e.target.amount.value == '') || ( e.target.amount.value == undefined )  || ( e.target.amount.value == NaN ) || ( typeof(e.target.amount.value) == NaN) ) 
+    {
+        document.querySelector(".js-errorAdd").innerHTML = "Veuillez remplir les champs (obligatoires) conformément";
+        
+        return 0
+    }
+
     const optionRequete = {
         method : "POST", 
         body : JSON.stringify(data),

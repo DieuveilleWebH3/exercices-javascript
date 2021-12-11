@@ -44,6 +44,11 @@
       "name": "Délice Cuisine",
       "amount": 35,
       "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Bonus July",
+      "amount": -100
     }
   ]
 }

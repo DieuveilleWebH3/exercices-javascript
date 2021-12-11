@@ -49,11 +49,13 @@ window.addEventListener("DOMContentLoaded"  , async() =>
 
                 // console.log(data);
 
-                // console.log(data.amount);
+                console.log(data.amount);
+
+                console.log(typeof(data.amount));
 
                 if((data.name == '') || (data.name == undefined) || (form.amount.value == '') || ( form.amount.value == undefined)  || ( form.amount.value == NaN) || ( typeof(data.amount) == NaN)) 
                 {
-                    document.querySelector(".js-error").innerHTML = "Veuillez remplir les champs obligatoires";
+                    document.querySelector(".js-error").innerHTML = "Veuillez remplir les champs (obligatoires) conformément";
 
                     // console.log("Veuillez remplir les champs obligatoires");
                     
