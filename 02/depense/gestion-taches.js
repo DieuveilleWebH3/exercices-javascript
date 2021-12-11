@@ -109,7 +109,7 @@ function genererFormsTaches(data){
 
             <input type="text" name="name" class="form-input" value="${d.name}" required>
 
-            <input type="number" name="amount" class="form-input mx-3" value="${d.amount}" required>
+            <input type="number" step=".01" name="amount" class="form-input mx-3" value="${d.amount}" required>
             
             <input type="submit" class="btn btn-primary mx-3" value="modifier">
             <input type="submit" class="btn btn-danger" value="supprimer">
