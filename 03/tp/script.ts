@@ -82,7 +82,50 @@ form.addEventListener("submit" , (e : Event) => {
     
     const titre = document.querySelector(".titre") as HTMLInputElement ;
     const auteur = document.querySelector(".auteur") as HTMLInputElement ;
+    
+    // On vérifie à l'aide de condition 
+    if ( (titre.value !== "") && (auteur.value !== "") )
+    {
+        const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
+        
+        // const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
+
+        let post: any;
+
+        user.forEach(u => {
+            post += articles.filter(p => p.userId === u.id)
+        })
+
+        getDatas(user, post);
+
+    }
+    else if( (titre.value !== "") && (auteur.value === "") )
+    {
+        const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
+        const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
+
+        getDatas(user,post);
+
+    }
+    else if( (titre.value === "") && (auteur.value !== "") )
+    {
+        // const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
+
+        // const user_post = post.filter(p => p.userId === user.id)
+
+        // const user = utilisateurs.filter( u =>  u.id === (post.userId));
+
+        const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
+        const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
+
+        getDatas(user,post);
+
+    }
+
+    /*
     const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
     const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
-    getDatas(user,post);
+    */
+
+    // getDatas(user,post);
 })
