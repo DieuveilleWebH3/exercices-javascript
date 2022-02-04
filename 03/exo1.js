@@ -2,9 +2,6 @@
 // Dieuveille BOUSSA ELLENGA 
 exports.__esModule = true;
 exports.logPerson = exports.users = void 0;
-/*
-export type User = Object;
-*/
 exports.users = [
     {
         name: 'Alain',
@@ -27,6 +24,5 @@ function logPerson(user) {
     console.log(" - ".concat(user.name, ", ").concat(user.age));
 }
 exports.logPerson = logPerson;
+// testing : It works 
 logPerson(exports.users[0]);
-// exo 2 
-// type UtilisateurAnonyme = Partial<Pick<Administrateur, "nom" | "ip">>;

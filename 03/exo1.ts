@@ -5,6 +5,7 @@
 // export type User = unknown;
 
 
+// This also works
 /*
 export type User = {
     name : string, 
@@ -16,6 +17,8 @@ export type User = {
 */
 
 
+// This works too
+/*
 export type User = {
     name : string, 
     age : number
@@ -23,11 +26,17 @@ export type User = {
     compentences ? : Array<string>,
     adresse ? : Object, 
 };
-
-
-/*
-export type User = Object;
 */
+
+
+export type User = {
+    name : string,
+    age: number,
+    occupation: string,
+    compentences ?: string[],
+    adresse ?: { rue : string, cp: number, ville: string}
+};
+
 
 
 export const users: User[] = [
@@ -54,6 +63,6 @@ export function logPerson(user: User) {
 }
 
 
-// testing : It works 
-// logPerson(users[0]);
+// testing 
+// logPerson(users[0]);  // It works :  - Alain, 25  
 
