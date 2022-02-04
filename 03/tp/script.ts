@@ -83,11 +83,16 @@ form.addEventListener("submit" , (e : Event) => {
     const titre = document.querySelector(".titre") as HTMLInputElement ;
     const auteur = document.querySelector(".auteur") as HTMLInputElement ;
     
+
+    /*
     // On vérifie à l'aide de condition 
     if ( (titre.value !== "") && (auteur.value !== "") )
     {
-        const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
+        let user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
         
+        console.log("*************** Users from name *****************");
+        console.log(user);
+        console.log("\n");
         // const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
 
         let post: any;
@@ -95,6 +100,24 @@ form.addEventListener("submit" , (e : Event) => {
         user.forEach(u => {
             post += articles.filter(p => p.userId === u.id)
         })
+
+        console.log("*************** Posts from users *****************");
+        console.log(post);
+        console.log("\n");
+
+
+        user.forEach(u => {
+
+            articles.forEach(article => {
+                if (article.userId === u.id) console.log("OK");
+                else user.splice(user.indexOf(u), 1)
+            })
+
+        })
+
+        console.log("*************** Users cleaned *****************");
+        console.log(post);
+        console.log("\n");
 
         getDatas(user, post);
 
@@ -122,10 +145,10 @@ form.addEventListener("submit" , (e : Event) => {
 
     }
 
-    /*
-    const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
-    const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
     */
 
-    // getDatas(user,post);
+    const user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
+    const post = articles.filter( a =>  a.title.toLowerCase().includes(titre.value.toLowerCase()));
+    
+    getDatas(user,post);
 })

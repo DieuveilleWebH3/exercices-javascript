@@ -1,4 +1,5 @@
-//Dieuveille BOUSSA ELLENGA 
+
+// Dieuveille BOUSSA ELLENGA 
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -53,7 +54,9 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     const titre = document.querySelector(".titre");
     const auteur = document.querySelector(".auteur");
+
     const user = utilisateurs.filter(u => u.name.toLowerCase().includes(auteur.value.toLowerCase()));
     const post = articles.filter(a => a.title.toLowerCase().includes(titre.value.toLowerCase()));
+
     getDatas(user, post);
 });
