@@ -55,8 +55,47 @@ form.addEventListener("submit", (e) => {
     const titre = document.querySelector(".titre");
     const auteur = document.querySelector(".auteur");
 
+    /*
+    // On vérifie à l'aide de condition 
+    if ( (titre.value !== "") && (auteur.value === "") )
+    {
+        const post = articles.filter(a => a.title.toLowerCase().includes(titre.value.toLowerCase()));
+
+        // let user = utilisateurs.filter( u =>  u.name.toLowerCase().includes(auteur.value.toLowerCase()));
+        let user = [];
+
+        post.forEach(p => {
+            console.log("*************** found user *****************");
+            console.log(utilisateurs.filter( u =>  u.id == p.userId));
+
+            user.push(utilisateurs.filter( u =>  u.id === p.userId));
+        });
+        
+        console.log("*************** Posts from users *****************");
+        console.log(post);
+        console.log("\n");
+
+        console.log("*************** Users cleaned *****************");
+        console.log(user);
+        console.log("\n");
+
+        getDatas(user, post);
+
+    }
+    */
+
+
     const user = utilisateurs.filter(u => u.name.toLowerCase().includes(auteur.value.toLowerCase()));
     const post = articles.filter(a => a.title.toLowerCase().includes(titre.value.toLowerCase()));
 
+    console.log("*************** Posts from users *****************");
+    console.log(post);
+    console.log("\n");
+
+    console.log("*************** Users cleaned *****************");
+    console.log(user);
+    console.log("\n");
+
     getDatas(user, post);
 });
+

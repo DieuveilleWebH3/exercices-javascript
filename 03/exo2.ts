@@ -21,8 +21,10 @@ interface UtilisateurAnonyme{
 }
 */
 
+// Okay, so the attribute "nom" is optionnal 
 
-type UtilisateurAnonyme = Pick<Administrateur, "nom" | "ip">;
+// type UtilisateurAnonyme = Pick<Administrateur, "nom" | "ip">;  // wrong 
 
+// this is it 
+type UtilisateurAnonyme = (Required<Pick<Administrateur, 'ip'>> & Partial<Pick<Administrateur, 'nom'>>);
 
-   
