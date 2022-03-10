@@ -75,6 +75,14 @@ export default function Calendrier() {
         e.preventDefault();
         console.log(dateChoisi);
         console.log(rdv);
+
+        if( ( rdv.titre == '') || ( rdv.titre == undefined ) ) 
+        {
+            document.querySelector(".js-errorAdd").innerHTML = "Veuillez rajouter un titre";
+            
+            return 0
+        }
+
         let obj = {
             titre : rdv.titre,
             commentaire : rdv.commentaire,
@@ -293,7 +301,8 @@ export default function Calendrier() {
                                     <Form style={{width:'30em'}}>
                                         <h3>Form</h3>
                                         <Form.Group className="mb-3" controlId="formRDV_titre">
-                                            <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" name="titre" onChange={onChange}/>
+                                            <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" required name="titre" onChange={onChange}/>
+                                            <div className='js-errorAdd' style={{ color: 'red' }}></div>
                                         </Form.Group>
                                         <input type="textarea" 
                                                 name="commentaire"

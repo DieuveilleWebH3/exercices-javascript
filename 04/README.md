@@ -48,26 +48,43 @@ There are two 2 components in this project
 
  - DataBase             localhost:3003/rdv
 
- 
+
+
 
 
 **Functions**
 
-Add new appointments ( by picking the date, adding the title and an optional comment)
+
+Add new appointments ( by picking the date, adding the title and an optional comment).
 
 
-Consult the list of existing appointments (days with appointments appear different on the calendar by clicking any, the list of appointments for that day is displayed)
+
+Consult the list of existing appointments (days with appointments appear different on the calendar by clicking any, the list of appointments for that day is displayed).
+
 
  
 
 
+
 **Commandss**
 
-npm install
+
+>> Clone repo  Open repo    then Run
+
+- npm install
 
 
-npm run api
+- npm run api
 
 
-npm start
+- npm start
+
+
+
+
+**Bonuses ?**
+
+ - Security check : user cannot create empty appointment, title is mandatory 
+  - - *used if statement to ensure that*
+
 
