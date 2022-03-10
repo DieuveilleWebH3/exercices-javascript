@@ -109,7 +109,7 @@ export default function Calendrier() {
         <div class="content-body">
 		    <div class="container-fluid">
 
-                <div className="col-xxl-12 text-center">
+                <div className="col-xxl-12 text-center" style={{ textAlign: 'center', margin: 'auto'}}>
                     <div className="row">
 
                         <div className="col-xl-12 col-lg-12">
@@ -319,7 +319,7 @@ export default function Calendrier() {
                                     <div className='row text-center mt-5'>
                                     {rdvDuJourChoisi.length>0 && 
                                         rdvDuJourChoisi.map(rdv => {
-                                            return <Card style={{ width: '18rem' }} className="col-xl-4 ml-3">
+                                            return <Card style={{ width: '18rem', margin: 'auto' }} className="col-xl-4 ml-3">
                                             <Card.Body>
                                                 <Card.Title>{rdv.titre}</Card.Title>
                                                 <Card.Text>
