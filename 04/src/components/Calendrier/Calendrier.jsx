@@ -316,10 +316,10 @@ export default function Calendrier() {
                                 <h4>Appointments</h4>
 
                                 <div className="col-xl-12 col-lg-12">
-                                    <div className='row text-center mt-5'>
+                                    <div className='row text-center mt-5 mb-2'>
                                     {rdvDuJourChoisi.length>0 && 
                                         rdvDuJourChoisi.map(rdv => {
-                                            return <Card style={{ width: '18rem', margin: 'auto' }} className="col-xl-4 ml-3">
+                                            return <Card style={{ width: '18rem', margin: 'auto' }} className="col-xl-3 ml-3 mb-2">
                                             <Card.Body>
                                                 <Card.Title>{rdv.titre}</Card.Title>
                                                 <Card.Text>
@@ -329,8 +329,11 @@ export default function Calendrier() {
                                             <Card.Footer>
                                                 <Card.Text>{rdv.date}</Card.Text>
                                             </Card.Footer>
-                                            <Card.Body>
-                                                <Button className='btn btn-warning small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
+                                            <Card.Body className='row align-items-center'>
+                                                <div className="col-xl-12 col-xxl-12 mr-auto">
+                                                    <Button className='btn btn-warning btn-md small'>Modifier</Button>
+                                                    <Button className='btn btn-danger btn-md small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
+                                                </div>
                                             </Card.Body>
                                         </Card>
                                         })
