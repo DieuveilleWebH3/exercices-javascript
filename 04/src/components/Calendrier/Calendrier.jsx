@@ -106,228 +106,244 @@ export default function Calendrier() {
         axios.get(URL_DB).then(res => setAllRdv(res.data));
     }, []);
     return (
-        <div className="col-xxl-12 text-center">
-            <div className="col-xl-12 col-lg-12">
-                <div className='row text-center mt-5'>
-                    <div className="col-md-6">
-                        <div className="row text-center">
-                            <div className="d-flex justify-content-center">
-                                <button className='btn btn-dark prev' onClick={()=> prevMonth()}> &lt; </button>    
-                                <b className='mt-2'>{nomMois[mois-1]}</b>
-                                <button className='btn btn-dark next' onClick={() => nextMonth()}> &gt; </button>    
-                            </div>
-                            <div className="mt-2 d-flex justify-content-center">
-                                <button className='btn btn-dark prev' onClick={() => prevYear()}> &lt; </button>    
-                                <b className='mt-2'>{annees}</b>
-                                <button className='btn btn-dark next' onClick={() => nextYear()}> &gt; </button>    
-                            </div>
-                        </div>
-                        <Table bordered>
-                            <thead>
-                                <tr>
-                                    {currentMonth.length > 0 && currentMonth.slice(0,7).map(a => {
-                                        return <th scope="col">{jourDeSemaine[a.getDay()]}</th>
-                                    })}
-                                </tr>
-                            </thead>
-                            <tbody className='body-table'>
-                                    {/* Premiere Semaine */}
-                                    <tr> 
-                                    {currentMonth.length > 0 && currentMonth.slice(0,7).map(a => {
-                                        const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
-                                        if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'black',color:'white'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
+        <div class="content-body">
+		    <div class="container-fluid">
+
+                <div className="col-xxl-12 text-center">
+                    <div className="row">
+
+                        <div className="col-xl-12 col-lg-12">
+                            <div className='row text-center mt-5'>
+
+                                <div className="col-xl-6">
+                                    <div className="row text-center">
+                                        <div className="d-flex justify-content-center">
+                                            <button className='btn btn-dark prev' onClick={()=> prevMonth()}> &lt; </button>    
+                                            <b className='mt-2'>{nomMois[mois-1]}</b>
+                                            <button className='btn btn-dark next' onClick={() => nextMonth()}> &gt; </button>    
+                                        </div>
+                                        <div className="mt-2 d-flex justify-content-center">
+                                            <button className='btn btn-dark prev' onClick={() => prevYear()}> &lt; </button>    
+                                            <b className='mt-2'>{annees}</b>
+                                            <button className='btn btn-dark next' onClick={() => nextYear()}> &gt; </button>    
+                                        </div>
+                                    </div>
+                                    <Table bordered>
+                                        <thead>
+                                            <tr>
+                                                {currentMonth.length > 0 && currentMonth.slice(0,7).map(a => {
+                                                    return <th scope="col">{jourDeSemaine[a.getDay()]}</th>
+                                                })}
+                                            </tr>
+                                        </thead>
+                                        <tbody className='body-table'>
+                                                {/* Premiere Semaine */}
+                                                <tr> 
+                                                {currentMonth.length > 0 && currentMonth.slice(0,7).map(a => {
+                                                    const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
+                                                    if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'black',color:'white'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }
+                                                    if(rdvs.length>0){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'grey'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }else{
+                                                        return <td className='col-md-1 item-tab' key={a} onClick={()=> {
+                                                            dayClick(a);
+                                                        }}>{a.getDate()}</td>
+                                                    }
+                                                })}
+                                                </tr>
+                                                <tr> 
+                                                {currentMonth.length > 0 && currentMonth.slice(7,14).map(a => {
+                                                    const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
+                                                    if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'black',color:'white'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }
+                                                    if(rdvs.length>0){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'grey'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }else{
+                                                        return <td className='col-md-1 item-tab' key={a} onClick={()=> {
+                                                            dayClick(a);
+                                                        }}>{a.getDate()}</td>
+                                                    }
+                                                })}
+                                                </tr>
+                                                <tr> 
+                                                {currentMonth.length > 0 && currentMonth.slice(14,21).map(a => {
+                                                    const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
+                                                    if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'black',color:'white'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }
+                                                    if(rdvs.length>0){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'grey'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }else{
+                                                        return <td className='col-md-1 item-tab' key={a} onClick={()=> {
+                                                            dayClick(a);
+                                                        }}>{a.getDate()}</td>
+                                                    }
+                                                    
+                                                })}
+                                                </tr>
+                                                <tr> 
+                                                {currentMonth.length > 0 && currentMonth.slice(21,28).map(a => {
+                                                    const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
+                                                    if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'black',color:'white'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }
+                                                    if(rdvs.length>0){
                                                         
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }
-                                        if(rdvs.length>0){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'grey'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'grey'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }else{
+                                                        return <td className='col-md-1 item-tab' key={a} onClick={()=> {
+                                                            dayClick(a);
+                                                        }}>{a.getDate()}</td>
+                                                    }
+                                                })}
+                                                </tr>
+                                                <tr> 
+                                                {currentMonth.length > 0 && currentMonth.slice(28,35).map(a => {
+                                                    const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
+                                                    if(rdvs.length>0){
                                                         
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }else{
-                                            return <td className='col-md-1 item-tab' key={a} onClick={()=> {
-                                                dayClick(a);
-                                            }}>{a.getDate()}</td>
-                                        }
-                                    })}
-                                    </tr>
-                                    <tr> 
-                                    {currentMonth.length > 0 && currentMonth.slice(7,14).map(a => {
-                                        const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
-                                        if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'black',color:'white'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }
-                                        if(rdvs.length>0){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'grey'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }else{
-                                            return <td className='col-md-1 item-tab' key={a} onClick={()=> {
-                                                dayClick(a);
-                                            }}>{a.getDate()}</td>
-                                        }
-                                    })}
-                                    </tr>
-                                    <tr> 
-                                    {currentMonth.length > 0 && currentMonth.slice(14,21).map(a => {
-                                        const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
-                                        if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'black',color:'white'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }
-                                        if(rdvs.length>0){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'grey'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }else{
-                                            return <td className='col-md-1 item-tab' key={a} onClick={()=> {
-                                                dayClick(a);
-                                            }}>{a.getDate()}</td>
-                                        }
+                                                        return <td className='col-md-1 item-tab' 
+                                                                    key={a} 
+                                                                    style={{backgroundColor:'grey'}}
+                                                                    onClick={()=> {
+                                                                    dayClick(a);
+                                                                    
+                                                                }}>
+                                                                    {a.getDate()}
+                                                                </td>
+                                                    }else{
+                                                        return <td className='col-md-1 item-tab' key={a} onClick={()=> {
+                                                            dayClick(a);
+                                                        }}>{a.getDate()}</td>
+                                                    }
+                                                    
+                                                })}
+                                                </tr>
+                                        </tbody>
+                                    </Table>
+                                </div>
+                                <div className='col-xl-6'>
+                                    <Form style={{width:'30em'}}>
+                                        <h3>Form</h3>
+                                        <Form.Group className="mb-3" controlId="formRDV_titre">
+                                            <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" name="titre" onChange={onChange}/>
+                                        </Form.Group>
+                                        <input type="textarea" 
+                                                name="commentaire"
+                                                placeholder="Enter votre commentaire"
+                                                style={{width:'30em'}}
+                                                onChange={onChange}
+                                                className='text-center'
+                                        />
                                         
-                                    })}
-                                    </tr>
-                                    <tr> 
-                                    {currentMonth.length > 0 && currentMonth.slice(21,28).map(a => {
-                                        const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
-                                        if(new Date().toLocaleDateString('fr-FR',options) === a.toLocaleDateString('fr-FR',options)){
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'black',color:'white'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }
-                                        if(rdvs.length>0){
-                                            
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'grey'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }else{
-                                            return <td className='col-md-1 item-tab' key={a} onClick={()=> {
-                                                dayClick(a);
-                                            }}>{a.getDate()}</td>
-                                        }
-                                    })}
-                                    </tr>
-                                    <tr> 
-                                    {currentMonth.length > 0 && currentMonth.slice(28,35).map(a => {
-                                        const rdvs = allRDV.filter(rdv => rdv.date === a.toLocaleDateString('fr-FR',options));
-                                        if(rdvs.length>0){
-                                            
-                                            return <td className='col-md-1 item-tab' 
-                                                        key={a} 
-                                                        style={{backgroundColor:'grey'}}
-                                                        onClick={()=> {
-                                                        dayClick(a);
-                                                        
-                                                    }}>
-                                                        {a.getDate()}
-                                                    </td>
-                                        }else{
-                                            return <td className='col-md-1 item-tab' key={a} onClick={()=> {
-                                                dayClick(a);
-                                            }}>{a.getDate()}</td>
-                                        }
-                                        
-                                    })}
-                                    </tr>
-                            </tbody>
-                        </Table>
-                    </div>
-                    <div className='col-md-6'>
-                        <Form style={{width:'30em'}}>
-                            <h3>Form</h3>
-                            <Form.Group className="mb-3" controlId="formRDV_titre">
-                                <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" name="titre" onChange={onChange}/>
-                            </Form.Group>
-                            <input type="textarea" 
-                                    name="commentaire"
-                                    placeholder="Enter votre commentaire"
-                                    style={{width:'30em'}}
-                                    onChange={onChange}
-                                    className='text-center'
-                            />
-                            
-                            <Form.Group className="mb-3 mt-3" controlId="formRDV_date">
-                                <Form.Control className="text-center" type="text" placeholder="Choisissez votre date" name="date" disabled={true} value={dateChoisi}/>
-                            </Form.Group>
-                            <Button variant="success" type="submit" onClick={(e)=> prendreRdv(e)}>
-                                Take an Appointment
-                            </Button>
-                        </Form>
+                                        <Form.Group className="mb-3 mt-3" controlId="formRDV_date">
+                                            <Form.Control className="text-center" type="text" placeholder="Choisissez votre date" name="date" disabled={true} value={dateChoisi}/>
+                                        </Form.Group>
+                                        <Button variant="success" type="submit" onClick={(e)=> prendreRdv(e)}>
+                                            Take an Appointment
+                                        </Button>
+                                    </Form>
+                                </div>
+                            </div>
+                            <div className="row text-center mt-5">
+                                <h4>Appointments</h4>
+
+                                <div className="col-xl-12 col-lg-12">
+                                    <div className='row text-center mt-5'>
+                                    {rdvDuJourChoisi.length>0 && 
+                                        rdvDuJourChoisi.map(rdv => {
+                                            return <Card style={{ width: '18rem' }} className="col-xl-4 ml-3">
+                                            <Card.Body>
+                                                <Card.Title>{rdv.titre}</Card.Title>
+                                                <Card.Text>
+                                                    {rdv.commentaire}
+                                                </Card.Text>
+                                            </Card.Body>
+                                            <Card.Footer>
+                                                <Card.Text>{rdv.date}</Card.Text>
+                                            </Card.Footer>
+                                            <Card.Body>
+                                                <Button className='btn btn-warning small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
+                                            </Card.Body>
+                                        </Card>
+                                        })
+                                    }
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div> 
                     </div>
                 </div>
-                <div className="row text-center mt-5">
-                    <h4>Appointments</h4>
-                    {rdvDuJourChoisi.length>0 && 
-                        rdvDuJourChoisi.map(rdv => {
-                            return <Card style={{ width: '18rem' }} className="col-md-4">
-                            <Card.Body>
-                                <Card.Title>{rdv.titre}</Card.Title>
-                                <Card.Text>
-                                    {rdv.commentaire}
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <Card.Text>{rdv.date}</Card.Text>
-                            </Card.Footer>
-                            <Card.Body>
-                                <Button className='btn btn-warning small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
-                            </Card.Body>
-                        </Card>
-                        })
-                    }
-                </div>
-            </div> 
+            </div>
         </div>
     )
 }
