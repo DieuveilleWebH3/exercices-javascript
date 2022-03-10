@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, Table , Button, Card } from 'react-bootstrap';
 import "./css.css";
 
-const URL_DB = "http://localhost:3003/rdv";
+const URL_DB = "http://localhost:3003/appointment";
 const dateDebutCalendrier = new Date("December 28, 2000");
 const dateFinCalendrier = new Date("January 30, 2040");
 
@@ -284,7 +284,7 @@ export default function Calendrier() {
                 </div>
                 <div className='col-md-6'>
                     <Form style={{width:'30em'}}>
-                        <h3>Formulaire</h3>
+                        <h3>Form</h3>
                         <Form.Group className="mb-3" controlId="formRDV_titre">
                             <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" name="titre" onChange={onChange}/>
                         </Form.Group>
@@ -300,13 +300,13 @@ export default function Calendrier() {
                             <Form.Control className="text-center" type="text" placeholder="Choisissez votre date" name="date" disabled={true} value={dateChoisi}/>
                         </Form.Group>
                         <Button variant="success" type="submit" onClick={(e)=> prendreRdv(e)}>
-                            Prendre RDV
+                            Take an Appointment
                         </Button>
                     </Form>
                 </div>
             </div>
             <div className="row text-center mt-5">
-                <h4>Les RDV</h4>
+                <h4>Appointments</h4>
                 {rdvDuJourChoisi.length>0 && 
                     rdvDuJourChoisi.map(rdv => {
                         return <Card style={{ width: '18rem' }} className="col-md-4">
