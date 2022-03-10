@@ -5,36 +5,37 @@
 
 
 ## Introduction ##
-This document provides the instructions for using the Ethikdo Application developed by Dieuveille BOUSSA ELLENGA. 
-This (partial) application made for Ethikdo is used to manage gift cards. 
+This document provides the instructions for using the React Calendar Application developed by Dieuveille BOUSSA ELLENGA. 
+This (partial) application is used to manage appointments. 
 
 
 ### Definition ###
 
 The app is based on the CRUD user interface convention.  
 
-**Create:** you can add : new user instances (with different roles) /   new gift cards 
+**Create:** you can add new appointments 
 
-**Read:** you can access those user instances (see the names, usernames, emails …) / the gifts cards (title ?, slug ?, amount, ...) 
+**Read:** you can access those appointments instances (see the title, date, comment ?, …) 
 
-**Update:** you can edit the users, / gift cards (top up , debit) ...  
+**Update:** you can edit the appointments, ...  
 
-**Delete:** you can also delete users (but it is advised not to, instead turn them inactive by unchecking the active field for that user on the Django Admin panel) / gift cards 
+**Delete:** you can also delete appointments 
 
 
 
 ### Target audience ###
 
-This document is targeted (but not limited) to technical individual with a Web Development (Django) background 
+This document is targeted (but not limited) to technical individual with a Web Development (React) background 
 
 
 
 ## Application components ##
 
 There are two 2 components in this project
- - The Account Module
 
- - The Gift cards management   
+ - The Authentication Module
+
+ - The Appointments Management Module   
 
 
 
@@ -59,8 +60,6 @@ Consult the list of existing appointments (days with appointments appear differe
 
  
 
-***Fonctionnalités : <br/>
-Vous pouvez choisir une date du calendrier et prendre un rdv en cette date en remplissant son titre et son commentaire et vous cliquez sur le boutton vert prendre RDV</b>
 
 **Commandss**
 
