@@ -25,7 +25,7 @@ The app is based on the CRUD user interface convention.
 
 ### Target audience ###
 
-This document is targeted (but not limited) to technical individual with a Web Development (React) background 
+This document is targeted (but not limited) to technical individual with a Web Development (JavaScript / React) background 
 
 
 
@@ -33,7 +33,7 @@ This document is targeted (but not limited) to technical individual with a Web D
 
 There are two 2 components in this project
 
- - The Authentication Module
+ - The Authentication Module (not completed (yet) time constraint ...)
 
  - The Appointments Management Module   
 
@@ -46,7 +46,7 @@ There are two 2 components in this project
 
  - Appointment page     localhost:3000/calendrier
 
- - DataBase             localhost:3003/rdv
+ - DataBase             localhost:3003/appointment
 
 
 
