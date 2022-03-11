@@ -78,7 +78,7 @@ export default function Calendrier() {
         
 
         // We make sure the title and the date were given
-        if( ( dateChoisi == '') || ( rdv.titre == '' ) ) 
+        if( ( ( dateChoisi == '') || ( dateChoisi == undefined ) )  && ( rdv.titre == '' ) ) 
         {
             document.querySelector(".js-errorAdd").innerHTML = "Veuillez choisir une date et rajouter un titre";
             
@@ -316,25 +316,25 @@ export default function Calendrier() {
                                     </Table>
                                 </div>
                                 <div className='col-xl-6'>
-                                    <Form style={{width:'30em'}}>
+                                    <Form>
                                         <h3>Form</h3>
                                         <Form.Group className="mb-3" controlId="formRDV_titre">
                                             <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" required name="titre" onChange={onChange}/>
                                             <div className='js-errorAdd' style={{ color: 'red' }}></div>
                                         </Form.Group>
-                                        <input type="textarea" 
+                                        <input type="textarea"
+                                                row='5'
                                                 name="commentaire"
                                                 placeholder="Enter votre commentaire"
-                                                style={{width:'30em'}}
                                                 onChange={onChange}
-                                                className='text-center'
+                                                className='form-control text-center'
                                         />
                                         
                                         <Form.Group className="mb-3 mt-3" controlId="formRDV_date">
                                             <Form.Control className="text-center" type="text" placeholder="Choisissez votre date" name="date" disabled={true} value={dateChoisi}/>
                                         </Form.Group>
                                         <Button variant="success" type="submit" onClick={(e)=> prendreRdv(e)}>
-                                            Take an Appointment
+                                            Make an Appointment
                                         </Button>
                                     </Form>
                                 </div>
@@ -358,9 +358,11 @@ export default function Calendrier() {
                                             </Card.Footer>
                                             <Card.Body className='row align-item-center'>
                                                 <div className="col-xl-12 col-xxl-12 mr-auto">
-                                                    <Button className='text-left btn btn-warning btn-md small'>Modifier</Button> 
+                                                    <Button className='btn btn-warning btn-md small'>Modifier</Button> 
                                                 
-                                                    <Button className='text-right btn btn-danger btn-md small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
+                                                    <div style={{ width: '10px', height:'auto', display: 'inline-block'}}></div>
+
+                                                    <Button className='btn btn-danger btn-md small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
                                                 </div>
                                             </Card.Body>
                                         </Card>
@@ -375,6 +377,18 @@ export default function Calendrier() {
                     </div>
                 </div>
             </div>
+
+
+            <div style={{ height:'50px'}}></div>
+
+
+            <div className="text-center footer">
+                <div className="text-center copyright">
+                    <p>Copyright © Designed &amp; Developed by  Dieuveille BOUSSA ELLENGA</p>
+                </div>
+            </div>
+
         </div>
+
     )
 }

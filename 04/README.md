@@ -9,6 +9,18 @@ This document provides the instructions for using the React Calendar Application
 This (partial) application is used to manage appointments. 
 
 
+>>
+
+
+![Interface Part1 ](appointment.png)
+
+
+![Interface Part2 ](appointments.png)
+
+
+>>
+
+
 ### Definition ###
 
 The app is based on the CRUD user interface convention.  
@@ -31,9 +43,9 @@ This document is targeted (but not limited) to technical individual with a Web D
 
 ## Application components ##
 
-There are two 2 components in this project
+There are two 2 components (modules / general scopes of project) in this project
 
- - The Authentication Module (not completed (yet) time constraint ...)
+ - The Authentication Module (not completed (yet) *time constraint* ...)
 
  - The Appointments Management Module   
 
@@ -82,9 +94,18 @@ Consult the list of existing appointments (days with appointments appear differe
 
 
 
-**Bonuses ?**
+## Bonuses ? ##
 
  - Security check : user cannot create empty appointment, **title and date are mandatory** 
   - - *used if statement to ensure that*
 
 
+![Required Field ](error_safe.png)
+
+
+
+>>
+ - Responsive interface 
+
+
+![Responsive Design ](responsive.png)
