@@ -75,7 +75,25 @@ export default function Calendrier() {
         e.preventDefault();
         console.log(dateChoisi);
         console.log(rdv);
+        
 
+        // We make sure the title and the date were given
+        if( ( dateChoisi == '') || ( rdv.titre == '' ) ) 
+        {
+            document.querySelector(".js-errorAdd").innerHTML = "Veuillez choisir une date et rajouter un titre";
+            
+            return 0
+        }
+
+        // We make sure the date was chosen
+        if( ( dateChoisi == '') || ( dateChoisi == undefined ) ) 
+        {
+            document.querySelector(".js-errorAdd").innerHTML = "Veuillez choisir la date";
+            
+            return 0
+        }
+
+        // We make sure the title was given
         if( ( rdv.titre == '') || ( rdv.titre == undefined ) ) 
         {
             document.querySelector(".js-errorAdd").innerHTML = "Veuillez rajouter un titre";
@@ -338,10 +356,11 @@ export default function Calendrier() {
                                             <Card.Footer>
                                                 <Card.Text>{rdv.date}</Card.Text>
                                             </Card.Footer>
-                                            <Card.Body className='row align-items-center'>
+                                            <Card.Body className='row align-item-center'>
                                                 <div className="col-xl-12 col-xxl-12 mr-auto">
-                                                    <Button className='btn btn-warning btn-md small'>Modifier</Button>
-                                                    <Button className='btn btn-danger btn-md small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
+                                                    <Button className='text-left btn btn-warning btn-md small'>Modifier</Button> 
+                                                
+                                                    <Button className='text-right btn btn-danger btn-md small' onClick={(e)=> supprimerRdv(e,rdv)}>Supprimer</Button>
                                                 </div>
                                             </Card.Body>
                                         </Card>

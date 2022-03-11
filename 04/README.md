@@ -17,7 +17,7 @@ The app is based on the CRUD user interface convention.
 
 **Read:** you can access those appointments instances (see the title, date, comment ?, …) 
 
-**Update:** you can edit the appointments, ...  
+**Update:** you can edit the appointments, ...  *not implemented yet (time  constraint)*
 
 **Delete:** you can also delete appointments 
 
@@ -84,7 +84,7 @@ Consult the list of existing appointments (days with appointments appear differe
 
 **Bonuses ?**
 
- - Security check : user cannot create empty appointment, title is mandatory 
+ - Security check : user cannot create empty appointment, **title and date are mandatory** 
   - - *used if statement to ensure that*
 
 
