@@ -78,7 +78,7 @@ export default function Calendrier() {
         
 
         // We make sure the title and the date were given
-        if( ( ( dateChoisi == '') || ( dateChoisi == undefined ) )  && ( rdv.titre == '' ) ) 
+        if( ( ( dateChoisi === '') || ( dateChoisi === undefined ) )  && ( rdv.titre === '' ) ) 
         {
             document.querySelector(".js-errorAdd").innerHTML = "Veuillez choisir une date et rajouter un titre";
             
@@ -86,7 +86,7 @@ export default function Calendrier() {
         }
 
         // We make sure the date was chosen
-        if( ( dateChoisi == '') || ( dateChoisi == undefined ) ) 
+        if( ( dateChoisi === '') || ( dateChoisi === undefined ) ) 
         {
             document.querySelector(".js-errorAdd").innerHTML = "Veuillez choisir la date";
             
@@ -94,7 +94,7 @@ export default function Calendrier() {
         }
 
         // We make sure the title was given
-        if( ( rdv.titre == '') || ( rdv.titre == undefined ) ) 
+        if( ( rdv.titre === '') || ( rdv.titre === undefined ) ) 
         {
             document.querySelector(".js-errorAdd").innerHTML = "Veuillez rajouter un titre";
             
