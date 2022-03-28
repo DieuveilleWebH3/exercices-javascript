@@ -10,7 +10,10 @@ function App() {
           </header>
           <main>
             <Routes>
-              <Route path="/calendrier" element={<Calendrier/>}/>
+              {/* <Route path="/calendrier" element={<Calendrier/>}/> */}
+
+              <Route path="/" element={<Calendrier/>}/>
+
             </Routes>
           </main>
       </div>

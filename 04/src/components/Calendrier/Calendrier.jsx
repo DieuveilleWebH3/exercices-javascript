@@ -132,8 +132,8 @@ export default function Calendrier() {
         axios.get(URL_DB).then(res => setAllRdv(res.data));
     }, []);
     return (
-        <div class="content-body">
-		    <div class="container-fluid">
+        <div className="content-body">
+		    <div className="container-fluid">
 
                 <div className="col-xxl-12 text-center" style={{ textAlign: 'center', margin: 'auto'}}>
                     <div className="row">
@@ -319,19 +319,19 @@ export default function Calendrier() {
                                     <Form>
                                         <h3>Form</h3>
                                         <Form.Group className="mb-3" controlId="formRDV_titre">
-                                            <Form.Control className="text-center" type="text" placeholder="Enter le titre du RDV" required name="titre" onChange={onChange}/>
+                                            <Form.Control className="text-center" type="text" placeholder="Enter the RDV title" required name="titre" onChange={onChange}/>
                                             <div className='js-errorAdd' style={{ color: 'red' }}></div>
                                         </Form.Group>
                                         <input type="textarea"
                                                 row='5'
                                                 name="commentaire"
-                                                placeholder="Enter votre commentaire"
+                                                placeholder="Enter your comment"
                                                 onChange={onChange}
                                                 className='form-control text-center'
                                         />
                                         
                                         <Form.Group className="mb-3 mt-3" controlId="formRDV_date">
-                                            <Form.Control className="text-center" type="text" placeholder="Choisissez votre date" name="date" disabled={true} value={dateChoisi}/>
+                                            <Form.Control className="text-center" type="text" placeholder="Pick a date" name="date" disabled={true} value={dateChoisi}/>
                                         </Form.Group>
                                         <Button variant="success" type="submit" onClick={(e)=> prendreRdv(e)}>
                                             Make an Appointment
