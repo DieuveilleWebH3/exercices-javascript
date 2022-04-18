@@ -35,20 +35,13 @@
                 </div>
 
                 <div class="float-child-element">
-                    <!-- 
-                        date.getDate()+
-                        "/"+(date.getMonth()+1)+
-                        "/"+date.getFullYear()+
-                        " "+date.getHours()+
-                        ":"+date.getMinutes()+
-                        ":"+date.getSeconds()
-                     -->
                     <div class="datePost">posté le {{ (new Date(article.date)).getDate()+
                         "/"+((new Date(article.date)).getMonth()+1)+
                         "/"+(new Date(article.date)).getFullYear()+
                         " à "+(new Date(article.date)).getHours()+
                         ":"+(new Date(article.date)).getMinutes()+
-                        ":"+(new Date(article.date)).getSeconds() }}</div>
+                        ":"+(new Date(article.date)).getSeconds() }}
+                    </div>
                 </div>
             </div>
 
@@ -80,6 +73,7 @@
             <!-- Les commentaires -->
             <div class="row commentaires">
                 <h3>Commentaires :</h3>
+
                 <div v-for="(commentaire, index) in article.commentaires " :key="index" :class="commentaire">
                     <div class="commentaire" style="margin-bottom:0.3em;">
                         <div class="row float-parent-element">
@@ -101,13 +95,14 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row addCommentaire" v-if="loggedIn === true">
                     <hr style="margin-left:0.5em;margin-top:1em;">
                     <h4>Ajouter un commentaire :</h4>
                     <form>
                         <textarea class="form-control" placeholder="laisser un commentaire" name="contenu" v-model="contenuCommentaire" rows="4" required></textarea>
 
-                        <div class='js-errorAdd text-center' style="color: red;"></div>
+                        <div v-bind:id="article.id" class="text-center" style="color: red;"></div>
 
                         <input type="submit" class="btn btn-outline-success" value="Laisser un commentaire" style="width:100%;margin-bottom:1em;" @click="(e)=>{addCommentaire(e,article)}"/>
                     </form>
@@ -207,23 +202,31 @@ export default {
                 the_pseudo = localStorage.getItem("pseudoUser");
             }
 
-            // return 0;
+
+            // console.log("\n");
+            // console.log("******************** The article id for the comment outside **************************");
+            // console.log(article.id);
+            // console.log("\n");
+            // console.log(document.getElementById(article.id));
+
+            var the_id = article.id;
+
 
             // We make sure the content wad given
             if( ( this.contenuCommentaire === '') || ( this.contenuCommentaire === undefined ) ) 
             {
-                document.querySelectorAll(".js-errorAdd")[1].innerHTML = "Veuillez écrire votre commentaire";
+                // var the_id = "js-errorAdd" + toString(article.id);
+
+                document.getElementById(the_id).innerHTML = "Veuillez écrire votre commentaire";
                 
                 return 0
             }
 
             const date_now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute: 'numeric', second :'numeric' };
-            const created_at = date_now.toLocaleDateString('fr-FR', options)
+
             const commentaire = {
                 contenu : this.contenuCommentaire,
                 pseudo : the_pseudo,
-                // dt: created_at
                 dt: date_now.getTime()
             }
             article.commentaires.push(commentaire)
