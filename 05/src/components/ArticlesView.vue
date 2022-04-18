@@ -27,7 +27,7 @@
             <!-- Header de l'article => Nom de l'utilisateur+photo et la date de l'article -->
             <div class="row headerPost float-parent-element">
                 <div class="float-child-element" >
-                    <div class="photoUser">
+                    <div class="user-pic">
                         <b style="font-size: 1.2em;">{{ article.pseudo }}</b> 
                         <img :src="article.urlImgProfil" class="user-img"/>
                     </div>
@@ -264,7 +264,7 @@ export default {
     
   },
   mounted:function(){
-      console.log(this.$store.pseudo);
+    //   console.log(this.$store.pseudo);
     fetch("http://localhost:3003/utilisateurs")
         .then(reponse => reponse.json())
         .then(data => {

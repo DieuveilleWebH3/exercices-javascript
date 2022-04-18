@@ -75,7 +75,7 @@ export default {
         float: left; 
         width: 50%; 
     } 
-    .photoUser { 
+    .user-pic { 
         height: 100%; 
     } 
     .user-img{
