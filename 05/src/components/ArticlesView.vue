@@ -1,5 +1,6 @@
 <template>
-    <b style="margin-left:50em;" v-if="loggedIn === true">Bonjour {{this.pseudo}}</b>
+    <b style="margin-left:50em;" v-if="loggedIn === true"> {{this.pseudo}} </b>
+
     <!-- Ajouter un nouveau article si l'utilisateur est connecté -->
     <div class="row quoiDeNeuf" v-if="loggedIn === true">
         <h4>Quoi de neuf ? <i class="fa-solid fa-house"></i></h4>
@@ -12,15 +13,18 @@
             <input type="submit" class="btn btn-success" value="Laisser un nouveau post" style="width:100%;margin-bottom:1em;" @click="nouveauArticle" />
         </form>
     </div>
+
     <!-- S'il n'ya pas d'articles -->
     <div v-if="this.$store.articles == undefined ">
         <h2>Veuillez vous connecter.</h2>
         <h2 v-if="!loggedIn">Connectez/Inscrivez-vous et créer vos articles.</h2>
         <h2 v-if="loggedIn === true">Créer vos articles.</h2>
     </div>
+
     <!-- Les articles -->
     <div v-for="(article, index) in this.$store.articles " :key="index" :class="post">
         <div class="post">
+
             <!-- Header de l'article => Nom de l'utilisateur+photo et la date de l'article -->
             <div class="row headerPost float-parent-element">
                 <div class="float-child-element" >
@@ -29,25 +33,41 @@
                         <img :src="article.urlImgProfil" class="user-img"/>
                     </div>
                 </div>
+
                 <div class="float-child-element">
-                    <!-- <div class="datePost">créé le {{ article.date }}</div> -->
-                    <div class="datePost">créé le {{ new Date(article.date) }}</div>
+                    <!-- 
+                        date.getDate()+
+                        "/"+(date.getMonth()+1)+
+                        "/"+date.getFullYear()+
+                        " "+date.getHours()+
+                        ":"+date.getMinutes()+
+                        ":"+date.getSeconds()
+                     -->
+                    <div class="datePost">posté le {{ (new Date(article.date)).getDate()+
+                        "/"+((new Date(article.date)).getMonth()+1)+
+                        "/"+(new Date(article.date)).getFullYear()+
+                        " à "+(new Date(article.date)).getHours()+
+                        ":"+(new Date(article.date)).getMinutes()+
+                        ":"+(new Date(article.date)).getSeconds() }}</div>
                 </div>
             </div>
+
             <!-- Image de l'article -->
             <div class="row">
                 <img :src="article.urlImgArticle" style="height:450px;" />
             </div>
+
             <!-- Contenu de l'article -->
             <div class="row contenuPost">
                 {{article.contenu}}
             </div>
+
             <!-- Nombre de commentaire et Like => possibilité de LIKER si l'utilisateur est connecté -->
             <div class="row action float-parent-element">
                 <div class="float-child-element"><i class="fa-regular fa-comment"><span class="nb nbComment">{{article.commentaires.length}}</span></i></div>
                 <div class="float-child-element">
-                    <i class="fa-regular fa-thumbs-up nb-like">
-                        <button v-if="loggedIn === true" class="nb nbLike" @click="(e) => {like(e,article)}">
+                    <i class="fa-regular fa-thumbs-up nb-like" @click="(e) => {like(e,article)}">
+                        <button v-if="loggedIn === true" class="nb nbLike">
                             {{article.like}}
                         </button>
                         <span v-if="loggedIn === false" class="nb nbLike">
@@ -56,6 +76,7 @@
                     </i>
                 </div>
             </div>
+
             <!-- Les commentaires -->
             <div class="row commentaires">
                 <h3>Commentaires :</h3>
@@ -66,8 +87,13 @@
                                 <b style="margin-left:0em;height: 100%; ">{{ commentaire.pseudo }}</b>
                             </div>
                             <div class="float-child-element">
-                                <!-- <p style="margin-left:10em;height: 100%;">le {{ commentaire.dt }}</p> -->
-                                <p style="margin-left:10em;height: 100%;">le {{ new Date(commentaire.dt) }}</p>
+                                <p style="margin-left:10em;height: 100%;">le {{ (new Date(commentaire.dt)).getDate()+
+                                    "/"+((new Date(commentaire.dt)).getMonth()+1)+
+                                    "/"+(new Date(commentaire.dt)).getFullYear()+
+                                    " à "+(new Date(commentaire.dt)).getHours()+
+                                    ":"+(new Date(commentaire.dt)).getMinutes()+
+                                    ":"+(new Date(commentaire.dt)).getSeconds() }}
+                                </p>
                             </div>
                         </div>
                         <div class="row" style="padding:0.2em">
@@ -152,6 +178,7 @@ export default {
             })
             
         },
+
         like(e,article){
             e.preventDefault()
             article.like++;
@@ -165,6 +192,7 @@ export default {
                 this.getArticles()              
             })
         },
+
         addCommentaire(e,article){
             e.preventDefault()
 

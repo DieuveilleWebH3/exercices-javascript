@@ -19,7 +19,7 @@
     {
       "contenu": "My trip to Cancun",
       "urlImgArticle": "https://cdn.getyourguide.com/img/location/5b45f52823afc.jpeg/92.jpg",
-      "like": 8,
+      "like": 3,
       "pseudo": "Dieuveille",
       "date": 1650384742000,
       "commentaires": [
@@ -50,11 +50,12 @@
     {
       "contenu": "Why having a web portfolio is important ?\n\nHere are the most important reasons",
       "urlImgArticle": "https://www.mealternance.com/static/monAlter/enfr/images/testi1.jpg",
-      "like": 0,
+      "like": 1,
       "pseudo": "jojo2",
-      "date": "lundi 18 avril 2022, 21:11:06",
+      "date": 1650316266000,
       "commentaires": [],
-      "id": 2
+      "id": 2,
+      "urlImgProfil": "https://www.mealternance.com/static/monAlter/images/admin.jpg"
     }
   ]
 }
