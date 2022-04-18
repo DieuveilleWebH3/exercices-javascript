@@ -6,8 +6,8 @@
 
 ## Introduction ##
 This document provides the instructions for using the Vue JS Social Network Application developed by Dieuveille BOUSSA ELLENGA. 
-This (partial) application is a small facebook type of clone, used to manage appointments. 
-# Eval-VueJS
+This (partial) application is a small facebook type of clone. 
+
 
 
 
@@ -45,11 +45,11 @@ There are two 2 components (modules / general scopes of project) in this project
 
 **Useful Links**
 
- - Homepage             localhost:3000
+ - Homepage                localhost:3000
 
  - Authentication page     localhost:3000/connexion
 
- - DataBase             http://localhost:3003/utilisateurs            http://localhost:3003/articles
+ - DataBase                http://localhost:3003/utilisateurs            http://localhost:3003/articles
 
 
 
@@ -97,8 +97,10 @@ Delete post              *not implemented yet (time  constraint)*
 >> Open browser   
 
 - Email : dieuveilleellenga@mail.com 
+- Password : 123User 
 
 
+- Email : jojoystar.2@mail.com 
 - Password : 123User 
 
 

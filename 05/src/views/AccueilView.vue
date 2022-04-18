@@ -26,7 +26,7 @@ export default {
     .quoiDeNeuf{
         margin-bottom:2em;
         padding-top:1em;
-        border: 0.5mm ridge rgba(211, 220, 50, .6);
+        border: 0.5mm ridge #0B2A97;
         background-color:#FBF9F8;
     }
     @media (min-width: 1024px) {
@@ -40,11 +40,11 @@ export default {
     }
     .menuParent{
         text-align: center;
-        border: 0.5mm ridge rgba(211, 220, 50, .6);
+        border: 0.5mm ridge #0B2A97;
     }
     .menu{
         margin:1em;
-        border-bottom: 1.5mm ridge rgba(211, 220, 50, .6)
+        border-bottom: 1.5mm ridge #0B2A97
     }
     .text-menu{
         text-decoration:none;
@@ -52,7 +52,7 @@ export default {
         font-size: smaller;
     }
     .text-menu:hover{
-        color:rgba(211, 220, 50, .6);
+        color:#0B2A97;
     }
     .post{
         border:1px solid black;

@@ -4,7 +4,7 @@
     <div class="row quoiDeNeuf" v-if="loggedIn === true">
         <h4>Quoi de neuf ? <i class="fa-solid fa-house"></i></h4>
         <form>
-            <textarea class="form-control" placeholder="laisser un nouveau post" name="contenu" v-model="contenu"></textarea>
+            <textarea class="form-control" placeholder="laisser un nouveau post" name="contenu" v-model="contenu" rows="5"></textarea>
             <input class="form-control" type="text" placeholder="url de votre image - taille conseillée 1000x200px" name="urlImgArticle"  v-model="urlImgArticle"/>
 
             <input type="submit" class="btn btn-success" value="Laisser un nouveau post" style="width:100%;margin-bottom:1em;" @click="nouveauArticle" />
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="float-child-element">
-                    <div class="datePost">posté le {{article.date}}</div>
+                    <div class="datePost">créé le {{article.date}}</div>
                 </div>
             </div>
             <!-- Image de l'article -->
@@ -73,9 +73,9 @@
                 </div>
                 <div class="row addCommentaire" v-if="loggedIn === true">
                     <hr style="margin-left:0.5em;margin-top:1em;">
-                    <h4>Ajouter un commentaire <i class="fa-regular fa-comment"> :</i></h4>
+                    <h4>Ajouter un commentaire :</h4>
                     <form>
-                        <textarea class="form-control" placeholder="laisser un commentaire" name="contenu" v-model="contenuCommentaire"></textarea>
+                        <textarea class="form-control" placeholder="laisser un commentaire" name="contenu" v-model="contenuCommentaire" rows="4"></textarea>
 
                         <input type="submit" class="btn btn-outline-success" value="Laisser un commentaire" style="width:100%;margin-bottom:1em;" @click="(e)=>{addCommentaire(e,article)}"/>
                     </form>

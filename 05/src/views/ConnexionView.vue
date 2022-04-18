@@ -2,7 +2,7 @@
   <div class="connexion">
      <form>
         <div class="mb-5">
-            <h1 style="margin-left:2em;">Se connecter <i class="fa-solid fa-link"></i></h1>
+            <h1 style="margin-left:2em;"> Se connecter <i class="fa-solid fa-link"></i></h1>
             <div class="inputs">
               <input class="form-control" type="email" placeholder="votre@email.fr" name="email" v-model="email"/>
               <input class="form-control" type="password" placeholder="password" name="password" v-model="password"/>
