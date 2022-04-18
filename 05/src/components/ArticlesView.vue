@@ -1,8 +1,7 @@
 <template>
-    <b style="margin-left:50em;" v-if="loggedIn === true"> {{this.pseudo}} </b>
 
     <!-- Ajouter un nouveau article si l'utilisateur est connecté -->
-    <div class="row quoiDeNeuf" v-if="loggedIn === true">
+    <div class="row sup mt-5" v-if="loggedIn === true">
         <h4>Quoi de neuf ? <i class="fa-solid fa-house"></i></h4>
         <form>
             <textarea class="form-control" placeholder="laisser un nouveau post" name="contenu" v-model="contenu" rows="5" required></textarea>

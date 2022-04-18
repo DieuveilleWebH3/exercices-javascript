@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .quoiDeNeuf{
+    .sup{
         margin-bottom:2em;
         padding-top:1em;
         border: 0.5mm ridge #0B2A97;
