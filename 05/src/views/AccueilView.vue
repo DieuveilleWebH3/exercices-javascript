@@ -78,7 +78,7 @@ export default {
     .photoUser { 
         height: 100%; 
     } 
-    .photoUser-img{
+    .user-img{
         border-radius: 50%;
         height:40px;
         width:40px;

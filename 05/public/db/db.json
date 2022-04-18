@@ -21,22 +21,27 @@
       "urlImgArticle": "https://cdn.getyourguide.com/img/location/5b45f52823afc.jpeg/92.jpg",
       "like": 8,
       "pseudo": "Dieuveille",
-      "date": "mardi 19 avril 2022, 16:12:22",
+      "date": 1650384742000,
       "commentaires": [
         {
           "contenu": "Wonderful",
           "pseudo": "Dieuveille",
-          "dt": "mardi 19 avril 2022, 16:12:48"
+          "dt": 1650384768000
         },
         {
           "contenu": "What a view !!",
           "pseudo": "Dieuveille",
-          "dt": "jeudi 21 avril 2022, 15:21:15"
+          "dt": 1650554475000
         },
         {
           "contenu": "Looks wonderful really, would like to visit too",
           "pseudo": "jojo2",
-          "dt": "lundi 18 avril 2022, 21:30:09"
+          "dt": 1650317409000
+        },
+        {
+          "contenu": "testing timestamp",
+          "pseudo": "jojo2",
+          "dt": 1650312025490
         }
       ],
       "id": 1,

@@ -26,11 +26,12 @@
                 <div class="float-child-element" >
                     <div class="photoUser">
                         <b style="font-size: 1.2em;">{{ article.pseudo }}</b> 
-                        <img :src="article.urlImgProfil" class="photoUser-img"/>
+                        <img :src="article.urlImgProfil" class="user-img"/>
                     </div>
                 </div>
                 <div class="float-child-element">
-                    <div class="datePost">créé le {{article.date}}</div>
+                    <!-- <div class="datePost">créé le {{ article.date }}</div> -->
+                    <div class="datePost">créé le {{ new Date(article.date) }}</div>
                 </div>
             </div>
             <!-- Image de l'article -->
@@ -65,7 +66,8 @@
                                 <b style="margin-left:0em;height: 100%; ">{{ commentaire.pseudo }}</b>
                             </div>
                             <div class="float-child-element">
-                                <p style="margin-left:10em;height: 100%;">le {{commentaire.dt }}</p>
+                                <!-- <p style="margin-left:10em;height: 100%;">le {{ commentaire.dt }}</p> -->
+                                <p style="margin-left:10em;height: 100%;">le {{ new Date(commentaire.dt) }}</p>
                             </div>
                         </div>
                         <div class="row" style="padding:0.2em">
@@ -132,7 +134,8 @@ export default {
                 urlImgArticle : this.urlImgArticle,   
                 like : 0,
                 pseudo : this.$store.pseudo,
-                date : created_at ,
+                // date: created_at,
+                date: date_now.getTime(),
                 commentaires : []
             }
             fetch("http://localhost:3003/articles", {
@@ -192,7 +195,8 @@ export default {
             const commentaire = {
                 contenu : this.contenuCommentaire,
                 pseudo : the_pseudo,
-                dt: created_at
+                // dt: created_at
+                dt: date_now.getTime()
             }
             article.commentaires.push(commentaire)
             fetch("http://localhost:3003/articles/"+article.id, {
