@@ -33,7 +33,7 @@
             </div>
             <!-- Image de l'article -->
             <div class="row">
-                <img :src="article.urlImgArticle" style="height:300px;" />
+                <img :src="article.urlImgArticle" style="height:450px;" />
             </div>
             <!-- Contenu de l'article -->
             <div class="row contenuPost">
@@ -151,13 +151,27 @@ export default {
         },
         addCommentaire(e,article){
             e.preventDefault()
-            const aujourdui = new Date();
+
+            var the_pseudo = "";
+
+            if (localStorage.getItem("loggedIn") === "true")  
+            {
+                console.log("\n");
+                console.log("************************ Getting the user pseudo ********************************");
+                console.log(localStorage.getItem("pseudoUser"));
+
+                the_pseudo = localStorage.getItem("pseudoUser");
+            }
+
+            // return 0;
+
+            const date_now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute: 'numeric', second :'numeric' };
-            const dateCMT = aujourdui.toLocaleDateString('fr-FR', options)
+            const created_at = date_now.toLocaleDateString('fr-FR', options)
             const commentaire = {
                 contenu : this.contenuCommentaire,
-                pseudo : this.$store.pseudo,
-                dt: dateCMT
+                pseudo : the_pseudo,
+                dt: created_at
             }
             article.commentaires.push(commentaire)
             fetch("http://localhost:3003/articles/"+article.id, {
