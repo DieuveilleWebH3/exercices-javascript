@@ -78,7 +78,7 @@ Consult the list of existing appointments (days with appointments appear differe
 
 
 
-**Commandss**
+**Commands**
 
 
 >> Clone repo  Open repo    then Run
