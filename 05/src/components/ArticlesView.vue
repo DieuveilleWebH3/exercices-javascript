@@ -32,8 +32,8 @@
                 </div>
             </div>
             <!-- Image de l'article -->
-            <div class="row photoPost">
-                <img :src="article.urlImgArticle"/>
+            <div class="row">
+                <img :src="article.urlImgArticle" style="height:300px;" />
             </div>
             <!-- Contenu de l'article -->
             <div class="row contenuPost">
