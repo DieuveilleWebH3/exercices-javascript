@@ -2,7 +2,7 @@
     <div class="inscription">
         <form>
             <div class="mb-5">
-                <h1 style="margin-left:2em;">Créer un nouveau profil <i class="fa-regular fa-user"></i></h1>
+                <h1 style="margin-left:2em;">Créer un profil <i class="fa-regular fa-user"></i></h1>
                 <div class="inputs">
                     <input class="form-control" type="text" placeholder="psoeudo" name="psoeudo" v-model="pseudo" required/>
                     <input class="form-control" type="email" placeholder="votre@email.fr" name="email" v-model="email" required/>
@@ -34,7 +34,7 @@ export default {
         inscrire(e){
             e.preventDefault();
             if(this.password != this.confirm_password){
-                document.querySelector('#message').innerHTML="Les mots de passe ne sont pas identiques !";
+                document.querySelector('#message').innerHTML="Assurez-vous que les mots de passe soient identiques !";
             }else{
                 const user = {
                     pseudo : this.pseudo,

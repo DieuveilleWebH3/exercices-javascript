@@ -4,8 +4,10 @@
     <div class="row quoiDeNeuf" v-if="loggedIn === true">
         <h4>Quoi de neuf ? <i class="fa-solid fa-house"></i></h4>
         <form>
-            <textarea class="form-control" placeholder="laisser un nouveau post" name="contenu" v-model="contenu" rows="5"></textarea>
+            <textarea class="form-control" placeholder="laisser un nouveau post" name="contenu" v-model="contenu" rows="5" required></textarea>
             <input class="form-control" type="text" placeholder="url de votre image - taille conseillée 1000x200px" name="urlImgArticle"  v-model="urlImgArticle"/>
+
+            <div class='js-errorAdd text-center' style="color: red;"></div>
 
             <input type="submit" class="btn btn-success" value="Laisser un nouveau post" style="width:100%;margin-bottom:1em;" @click="nouveauArticle" />
         </form>
@@ -75,7 +77,9 @@
                     <hr style="margin-left:0.5em;margin-top:1em;">
                     <h4>Ajouter un commentaire :</h4>
                     <form>
-                        <textarea class="form-control" placeholder="laisser un commentaire" name="contenu" v-model="contenuCommentaire" rows="4"></textarea>
+                        <textarea class="form-control" placeholder="laisser un commentaire" name="contenu" v-model="contenuCommentaire" rows="4" required></textarea>
+
+                        <div class='js-errorAdd text-center' style="color: red;"></div>
 
                         <input type="submit" class="btn btn-outline-success" value="Laisser un commentaire" style="width:100%;margin-bottom:1em;" @click="(e)=>{addCommentaire(e,article)}"/>
                     </form>
@@ -109,17 +113,26 @@ export default {
     },
     methods:{
         nouveauArticle(e){
-            e.preventDefault()
-           
-            const aujourdui = new Date();
+            e.preventDefault()            
+
+            // We make sure the content wad given
+            if( ( this.contenu === '') || ( this.contenu === undefined ) ) 
+            {
+                document.querySelector(".js-errorAdd").innerHTML = "Veuillez écrire votre post";
+                
+                return 0
+            }
+
+            const date_now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute: 'numeric', second :'numeric' };
-            const dateArticle = aujourdui.toLocaleDateString('fr-FR', options)
+            const created_at = date_now.toLocaleDateString('fr-FR', options)
+            
             const article = {
                 contenu : this.contenu,
                 urlImgArticle : this.urlImgArticle,   
                 like : 0,
                 pseudo : this.$store.pseudo,
-                date : dateArticle ,
+                date : created_at ,
                 commentaires : []
             }
             fetch("http://localhost:3003/articles", {
@@ -156,14 +169,22 @@ export default {
 
             if (localStorage.getItem("loggedIn") === "true")  
             {
-                console.log("\n");
-                console.log("************************ Getting the user pseudo ********************************");
-                console.log(localStorage.getItem("pseudoUser"));
+                // console.log("\n");
+                // console.log("************************ Getting the user pseudo ********************************");
+                // console.log(localStorage.getItem("pseudoUser"));
 
                 the_pseudo = localStorage.getItem("pseudoUser");
             }
 
             // return 0;
+
+            // We make sure the content wad given
+            if( ( this.contenuCommentaire === '') || ( this.contenuCommentaire === undefined ) ) 
+            {
+                document.querySelectorAll(".js-errorAdd")[1].innerHTML = "Veuillez écrire votre commentaire";
+                
+                return 0
+            }
 
             const date_now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute: 'numeric', second :'numeric' };

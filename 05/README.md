@@ -49,7 +49,9 @@ There are two 2 components (modules / general scopes of project) in this project
 
  - Authentication page     localhost:3000/connexion
 
- - DataBase                http://localhost:3003/utilisateurs            http://localhost:3003/articles
+ - DataBase                
+  - - localhost:3003/utilisateurs            
+  - - localhost:3003/articles
 
 
 
@@ -60,17 +62,17 @@ There are two 2 components (modules / general scopes of project) in this project
 
 Create an account 
 
-Edit your account        *not implemented yet (time  constraint)*
+Edit your account         *not implemented yet (time  constraint)*
 
 Add new posts.
 
 Add comments
 
-Add likes
+Like posts
 
-Edit post                *not implemented yet (time  constraint)*
+Edit posts                *not implemented yet (time  constraint)*
 
-Delete post              *not implemented yet (time  constraint)*
+Delete posts              *not implemented yet (time  constraint)*
  
 
 
@@ -78,7 +80,7 @@ Delete post              *not implemented yet (time  constraint)*
 **Commands**
 
 
->> Clone repo  Open repo    then Run
+>> Clone repo   Open directory     then Run
 
 - npm install
 
@@ -102,6 +104,21 @@ Delete post              *not implemented yet (time  constraint)*
 
 - Email : jojoystar.2@mail.com 
 - Password : 123User 
+
+
+
+
+## Bonuses ? ##
+
+ - Security check : user cannot create empty post, **content is  mandatory** 
+  - - *used if statement to ensure that*
+
+ - Security check : user cannot create empty comment, **content is  mandatory** 
+  - - *used if statement to ensure that*
+
+
+>>
+ - Responsive interface 
 
 
 
